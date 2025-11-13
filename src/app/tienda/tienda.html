@@ -1,0 +1,44 @@
+<div class="container-fluid py-4 py-md-5" style="max-width: 1600px;">
+
+  <div id="lista-pizzas" class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-dark">Nuestras Pizzas</h1>
+    <p class="lead text-muted">Elige tus favoritas y añádelas al carrito</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-5">
+    @for (pizza of pizzasMaestra; track pizza.nombre) {
+      <div class="col">
+        <app-pizza-card 
+          [pizza]="pizza" 
+          (agregar)="onAgregarPizza($event)">
+        </app-pizza-card>
+      </div>
+    }
+  </div>
+
+  <hr class="my-4 my-md-5">
+
+  <div class="row justify-content-center g-4 g-lg-5">
+    
+    <div class="col-lg-6 col-xl-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">
+          <i class="bi bi-receipt-cutoff me-2 text-primary"></i>
+          Resumen del Pedido
+        </h2>
+      </div>
+      <app-resumen-pedido [items]="pedido"></app-resumen-pedido>
+    </div>
+
+    <div class="col-lg-6 col-xl-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">
+          <i class="bi bi-credit-card me-2 text-primary"></i>
+          Datos de Pago y Envío
+        </h2>
+      </div>
+      <app-pago (pedidoPagado)="onPedidoPagado()"></app-pago>
+    </div>
+
+  </div>
+</div>

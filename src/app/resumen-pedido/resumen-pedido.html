@@ -1,0 +1,25 @@
+@if (items().length === 0) {
+  <div class="alert alert-secondary text-center" role="alert">
+    <i class="bi bi-cart-x fs-3 d-block mb-2"></i>
+    Tu carrito está vacío.
+  </div>
+} @else {
+  <ul class="list-group shadow-sm rounded-3">
+    @for (item of items(); track item.pizza.nombre) {
+      <li class="list-group-item d-flex justify-content-between align-items-center fs-6">
+        <div>
+          <span class="fw-bold">{{ item.cantidad }}</span> x {{ item.pizza.nombre }}
+        </div>
+        <span class="badge bg-light text-dark-emphasis rounded-pill fs-6">
+          {{ (item.pizza.precio * item.cantidad) | number: '1.2-2' }} €
+        </span>
+      </li>
+    }
+    <li class="list-group-item d-flex justify-content-between align-items-center bg-light">
+      <span class="fw-bold fs-5 text-primary">TOTAL</span>
+      <span class="fw-bold fs-5 text-primary">
+        {{ totalPedido() | number: '1.2-2' }} €
+      </span>
+    </li>
+  </ul>
+}
