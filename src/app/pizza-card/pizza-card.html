@@ -1,9 +1,9 @@
 <div class="card h-100 shadow-sm border-0 rounded-3">
   <div class="card-body d-flex flex-column p-4">
 
-    <div class="d-flex justify-content-between align-items-start mb-2">
-      <h4 class="card-title fw-bold mb-0">{{ pizza().nombre }}</h4>
-      <span class="badge bg-primary fs-6 rounded-pill">{{ pizza().precioFormateado }} €</span>
+    <div class="position-relative d-flex align-items-center mb-2">
+      <h4 class="card-title fw-bold mb-0 flex-grow-1 text-center">{{ pizza().nombre }}</h4>
+      <span class="badge bg-primary fs-6 rounded-pill position-absolute end-0">{{ pizza().precioFormateado }} €</span>
     </div>
 
     <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3 pizza-card-img" [alt]="pizza().nombre">
