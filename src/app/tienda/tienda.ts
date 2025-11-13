@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PizzaCard } from '../pizza-card/pizza-card';
 import { ResumenPedido } from '../resumen-pedido/resumen-pedido';
 import { Pago } from '../pago/pago';
 import { PizzaModel } from '../models/PizzaModel';
 import { PedidoItemModel } from '../models/PedidoItemModel';
+import { Carta } from '../carta/carta';
 
 // Datos de ejemplo
 const PIZZAS_POR_DEFECTO: PizzaModel[] = [
@@ -44,7 +44,8 @@ const PIZZAS_POR_DEFECTO: PizzaModel[] = [
 @Component({
   selector: 'app-tienda',
   standalone: true,
-  imports: [CommonModule, PizzaCard, ResumenPedido, Pago],
+  // MODIFICADO: quitamos PizzaCard y añadimos Carta
+  imports: [CommonModule, Carta, ResumenPedido, Pago],
   templateUrl: './tienda.html',
 })
 export class Tienda implements OnInit {
@@ -60,7 +61,7 @@ export class Tienda implements OnInit {
     this.pizzasMaestra = PIZZAS_POR_DEFECTO;
   }
 
-  // Método que se llama desde el output() de <app-pizza-card>
+  // Este método AHORA es llamado por el output (agregar) de <app-carta>
   onAgregarPizza(evento: { pizza: PizzaModel, cantidad: number }) {
 
     // Buscamos si la pizza ya está en el pedido

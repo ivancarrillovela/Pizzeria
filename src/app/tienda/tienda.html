@@ -4,14 +4,7 @@
     <h1 class="display-5 fw-bold text-dark">Nuestras Pizzas</h1>
     <p class="lead text-muted">Elige tus pizzas favoritas de nuestra carta y añádelas al carrito</p>
   </div>
-
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-4 ">
-    @for (pizza of pizzasMaestra; track pizza.nombre) {
-    <div class="col">
-      <app-pizza-card [pizza]="pizza" (agregar)="onAgregarPizza($event)"></app-pizza-card>
-    </div>
-    }
-  </div>
+  <app-carta [pizzas]="pizzasMaestra" (agregar)="onAgregarPizza($event)"></app-carta>
 
   <hr class="my-4 my-md-5">
 
