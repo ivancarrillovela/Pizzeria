@@ -1,11 +1,12 @@
 import { Component, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PedidoItemModel } from '../models/PedidoItemModel';
+import { EstadoVacio } from '../estado-vacio/estado-vacio';
 
 @Component({
   selector: 'app-resumen-pedido',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, EstadoVacio],
   templateUrl: './resumen-pedido.html',
 })
 export class ResumenPedido {
