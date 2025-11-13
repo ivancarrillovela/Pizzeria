@@ -4,5 +4,5 @@ export class PedidoItemModel {
   constructor(
     public pizza: PizzaModel,
     public cantidad: number
-  ) {}
+  ) { }
 }

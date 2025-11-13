@@ -4,5 +4,5 @@ export class PizzaModel {
     public precio: number,
     public fotoUrl: string,
     public ingredientes: string[]
-  ) {}
+  ) { }
 }

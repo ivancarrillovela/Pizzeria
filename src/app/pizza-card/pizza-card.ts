@@ -10,7 +10,7 @@ import { PizzaModel } from '../models/PizzaModel';
   templateUrl: './pizza-card.html',
 })
 export class PizzaCard {
-  
+
   // 1. Recibimos la pizza (Input)
   pizza = input.required<PizzaModel>();
 
@@ -40,7 +40,7 @@ export class PizzaCard {
       pizza: this.pizza(),
       cantidad: cantidadSeleccionada
     });
-    
+
     // Reseteamos el valor a 1
     this.formularioCantidad.reset({ cantidad: 1 });
   }

@@ -62,7 +62,7 @@ export class Tienda implements OnInit {
 
   // Método que se llama desde el output() de <app-pizza-card>
   onAgregarPizza(evento: { pizza: PizzaModel, cantidad: number }) {
-    
+
     // Buscamos si la pizza ya está en el pedido
     const itemExistente = this.pedido.find(
       item => item.pizza.nombre === evento.pizza.nombre
@@ -85,7 +85,7 @@ export class Tienda implements OnInit {
   onPedidoPagado() {
     // Limpiamos el pedido (como pide el examen)
     this.pedido = [];
-    
+
     // Devolvemos el foco a la lista de pizzas (scroll)
     // Buscamos el elemento por ID y hacemos scroll
     const elementoPizzas = document.getElementById('lista-pizzas');

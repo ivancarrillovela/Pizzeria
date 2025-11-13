@@ -2,19 +2,19 @@
   <div class="card-body p-4 p-md-5">
 
     <form [formGroup]="formularioPago" (ngSubmit)="enviarFormulario()" novalidate>
-      
+
       <!-- Hora de Entrega -->
       <div class="row mb-4 align-items-start">
         <label for="horaEntrega" class="col-md-3 col-form-label fw-semibold">Hora Entrega</label>
         <div class="col-md-9">
           <input type="time" id="horaEntrega" class="form-control" formControlName="horaEntrega">
-          
+
           @if (controlInvalido(horaEntrega)) {
-            <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-              @if (horaEntrega?.errors?.['required']) {
-                La hora de entrega es obligatoria.
-              }
-            </div>
+          <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+            @if (horaEntrega?.errors?.['required']) {
+            La hora de entrega es obligatoria.
+            }
+          </div>
           }
         </div>
       </div>
@@ -25,14 +25,14 @@
         <div class="col-md-9">
           <textarea id="direccion" class="form-control" rows="3" formControlName="direccion"></textarea>
           @if (controlInvalido(direccion)) {
-            <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-              @if (direccion?.errors?.['required']) {
-                La dirección es obligatoria.
-              }
-              @if (direccion?.errors?.['minlength']) {
-                La dirección parece demasiado corta.
-              }
-            </div>
+          <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+            @if (direccion?.errors?.['required']) {
+            La dirección es obligatoria.
+            }
+            @if (direccion?.errors?.['minlength']) {
+            La dirección parece demasiado corta.
+            }
+          </div>
           }
         </div>
       </div>
@@ -41,31 +41,33 @@
       <div class="row mb-4 align-items-start">
         <label class="col-md-3 col-form-label fw-semibold">Método de Pago</label>
         <div class="col-md-9">
-          
+
           <!-- Opción Tarjeta -->
           <div class="row align-items-center mb-3">
             <div class="col-auto">
               <div class="form-check">
-                <input type="radio" id="pagoTarjeta" class="form-check-input" value="Tarjeta" formControlName="metodoPago">
+                <input type="radio" id="pagoTarjeta" class="form-check-input" value="Tarjeta"
+                  formControlName="metodoPago">
                 <label for="pagoTarjeta" class="form-check-label fw-semibold">Tarjeta</label>
               </div>
             </div>
             <div class="col">
-              <input type="text" id="numeroTarjeta" class="form-control" formControlName="numeroTarjeta" placeholder="Número Tarjeta">
-              
+              <input type="text" id="numeroTarjeta" class="form-control" formControlName="numeroTarjeta"
+                placeholder="Número Tarjeta">
+
               @if (controlInvalido(numeroTarjeta)) {
-                <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-                  @if (numeroTarjeta?.errors?.['required']) {
-                    El número de tarjeta es obligatorio.
-                  }
-                  @if (numeroTarjeta?.errors?.['pattern']) {
-                    Debe introducir 16 dígitos numéricos.
-                  }
-                </div>
+              <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+                @if (numeroTarjeta?.errors?.['required']) {
+                El número de tarjeta es obligatorio.
+                }
+                @if (numeroTarjeta?.errors?.['pattern']) {
+                Debe introducir 16 dígitos numéricos.
+                }
+              </div>
               }
             </div>
           </div>
-        
+
           <!-- Opción Bizum -->
           <div class="row align-items-center mb-3">
             <div class="col-auto">
@@ -75,21 +77,22 @@
               </div>
             </div>
             <div class="col">
-              <input type="tel" id="numeroTelefono" class="form-control" formControlName="numeroTelefono" placeholder="Número Teléfono">
-              
+              <input type="tel" id="numeroTelefono" class="form-control" formControlName="numeroTelefono"
+                placeholder="Número Teléfono">
+
               @if (controlInvalido(numeroTelefono)) {
-                <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-                  @if (numeroTelefono?.errors?.['required']) {
-                    El número de teléfono es obligatorio.
-                  }
-                  @if (numeroTelefono?.errors?.['pattern']) {
-                    Debe introducir 9 dígitos numéricos.
-                  }
-                </div>
+              <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+                @if (numeroTelefono?.errors?.['required']) {
+                El número de teléfono es obligatorio.
+                }
+                @if (numeroTelefono?.errors?.['pattern']) {
+                Debe introducir 9 dígitos numéricos.
+                }
+              </div>
               }
             </div>
           </div>
-          
+
         </div>
       </div>
 

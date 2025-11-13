@@ -61,7 +61,7 @@ export class Pago implements OnInit {
       telefonoControl.setValidators([Validators.required, Validators.pattern(/^\d{9}$/)]);
       tarjetaControl.clearValidators();
     }
-    
+
     // Actualizamos la validez de los controles
     tarjetaControl.updateValueAndValidity();
     telefonoControl.updateValueAndValidity();
@@ -83,7 +83,7 @@ export class Pago implements OnInit {
 
     // Damos las gracias (como pide el examen)
     alert('¡Gracias por su pedido!');
-    
+
     // Emitimos el evento
     this.pedidoPagado.emit();
 

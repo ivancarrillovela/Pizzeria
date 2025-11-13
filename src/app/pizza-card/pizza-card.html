@@ -1,27 +1,24 @@
 <div class="card h-100 shadow-sm border-0 rounded-3">
   <div class="card-body d-flex flex-column p-4">
-    
+
     <div class="d-flex justify-content-between align-items-start mb-2">
       <h4 class="card-title fw-bold mb-0">{{ pizza().nombre }}</h4>
       <span class="badge bg-primary fs-6 rounded-pill">{{ pizza().precio | number: '1.2-2' }} €</span>
     </div>
 
-    <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3" [alt]="pizza().nombre" style="height: 200px; object-fit: cover;">
-    
+    <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3" [alt]="pizza().nombre"
+      style="height: 200px; object-fit: cover;">
+
     <div class="mb-3">
       @for (ingrediente of pizza().ingredientes; track $index) {
-        <i class="bi bi-egg-fried fs-4 me-2" title="{{ ingrediente }}"></i>
+      <i class="bi bi-egg-fried fs-4 me-2" title="{{ ingrediente }}"></i>
       }
     </div>
 
     <form [formGroup]="formularioCantidad" (ngSubmit)="enviarFormulario()" class="mt-auto">
       <div class="input-group">
         <span class="input-group-text">Cantidad</span>
-        <input 
-          type="number" 
-          class="form-control" 
-          formControlName="cantidad"
-          aria-label="Cantidad">
+        <input type="number" class="form-control" formControlName="cantidad" aria-label="Cantidad">
         <button type="submit" class="btn btn-primary" [disabled]="formularioCantidad.invalid">
           <i class="bi bi-cart-plus-fill"></i>
         </button>
