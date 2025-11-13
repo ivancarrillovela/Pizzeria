@@ -22,7 +22,7 @@ export class PizzaCard {
     cantidad: new FormControl(1, [Validators.required, Validators.min(1)])
   });
 
-  // 4. Getter para el template (como en receta-form.ts)
+  // 4. Getter para el template
   get cantidad() {
     return this.formularioCantidad.get('cantidad');
   }

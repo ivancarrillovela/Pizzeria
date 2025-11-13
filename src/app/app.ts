@@ -14,4 +14,5 @@ export class App {
   // Aquí podríamos sobrescribir los inputs de header/footer si quisiéramos
   public titulo = '4V PIZZA'; // Titulo de la página
   public miNombre = 'Iván Carrillo Vela'; // Mi nombre, que utilizaré para el footer
+  public logoUrl = '/images/logo_4v.jpg'; // Ruta del logo de la pizzería
 }
