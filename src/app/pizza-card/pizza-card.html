@@ -6,13 +6,12 @@
       <span class="badge bg-primary fs-6 rounded-pill">{{ pizza().precioFormateado }} €</span>
     </div>
 
-    <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3" [alt]="pizza().nombre"
-      style="height: 200px; object-fit: cover;">
+    <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3 pizza-card-img" [alt]="pizza().nombre">
 
     <div class="mb-3 d-flex flex-wrap gap-2">
       @for (ingrediente of pizza().ingredientes; track $index) {
       <img [src]="getIconoIngrediente(ingrediente)" [alt]="ingrediente" [title]="ingrediente"
-        class="img-fluid" style="height: 40px; width: 40px; object-fit: contain;">
+        class="img-fluid ingredient-icon">
       }
     </div>
 

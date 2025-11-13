@@ -5,6 +5,7 @@ import { Component, input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './header.html',
+  styleUrl: './header.scss'
 })
 export class Header {
   // Hacemos el título configurable como pide el examen

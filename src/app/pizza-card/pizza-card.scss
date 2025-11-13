@@ -1,0 +1,12 @@
+// Estilos para la imagen principal de la pizza
+.pizza-card-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+// Estilos para los iconos de ingredientes
+.ingredient-icon {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
