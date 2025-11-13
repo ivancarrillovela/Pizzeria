@@ -99,6 +99,19 @@ export class Pago implements OnInit {
 
   // Método para el botón LIMPIAR
   limpiarFormulario() {
+    // Verificamos si el formulario está vacío y el pedido está vacío
+    const formularioVacio = !this.formularioPago.get('horaEntrega')?.value && 
+                           !this.formularioPago.get('direccion')?.value &&
+                           !this.formularioPago.get('numeroTarjeta')?.value &&
+                           !this.formularioPago.get('numeroTelefono')?.value;
+    
+    const pedidoVacio = this.items().length === 0;
+
+    if (formularioVacio && pedidoVacio) {
+      alert('El pedido y el formulario ya están vacíos.');
+      return;
+    }
+
     this.formularioPago.reset();
     // Restauramos el valor por defecto del radio button
     this.formularioPago.patchValue({ metodoPago: 'Tarjeta' });

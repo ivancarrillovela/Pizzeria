@@ -11,7 +11,7 @@ import { PizzaModel } from '../models/PizzaModel';
   styleUrl: './pizza-card.scss'
 })
 export class PizzaCard {
-  
+
   pizza = input.required<PizzaModel>();
   agregar = output<{ pizza: PizzaModel, cantidad: number }>();
 

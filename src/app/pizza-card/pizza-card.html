@@ -18,7 +18,7 @@
     <form [formGroup]="formularioCantidad" (ngSubmit)="enviarFormulario()" class="mt-auto">
       <div class="input-group">
         <span class="input-group-text">Cantidad</span>
-        <input type="number" class="form-control" formControlName="cantidad" aria-label="Cantidad">
+        <input type="number" class="form-control" formControlName="cantidad" min="1" aria-label="Cantidad">
         <button type="submit" class="btn btn-primary" [disabled]="formularioCantidad.invalid">
           <i class="bi bi-cart-plus-fill"></i>
         </button>

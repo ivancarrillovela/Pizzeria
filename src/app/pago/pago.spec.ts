@@ -10,7 +10,7 @@ describe('Pago', () => {
     await TestBed.configureTestingModule({
       imports: [Pago]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(Pago);
     component = fixture.componentInstance;
