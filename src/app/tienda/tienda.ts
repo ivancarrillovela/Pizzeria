@@ -10,27 +10,27 @@ import { PedidoItemModel } from '../models/PedidoItemModel';
 const PIZZAS_POR_DEFECTO: PizzaModel[] = [
   new PizzaModel(
     'Margarita', 15.50,
-    'https://tse2.mm.bing.net/th/id/OIP.UDQ-kwe6SS-u-v68e2w3VQHaE7?rs=1&pid=ImgDetMain',
+    'https://www.hogarmania.com/archivos/202303/pizza-margarita-portada-848x477x80xX.jpg',
     ['Tomate', 'Mozzarella', 'Albahaca']
   ),
   new PizzaModel(
     'BBQ', 18.00,
-    'https://pluspng.com/img-png/bbq-pizza-png-pizza-png-image-4874-3236-4874.png',
+    'https://tse2.mm.bing.net/th/id/OIP.IklJj9okwn37Izj0OjWT8AHaEK?cb=ucfimgc2&rs=1&pid=ImgDetMain&o=7&rm=3',
     ['Tomate', 'Mozzarella', 'Pollo', 'Salsa BBQ', 'Bacon']
   ),
   new PizzaModel(
     'Napolitana', 16.00,
-    'https://www.lucapizza.es/wp-content/uploads/2021/03/pizza-napolitana.jpg',
+    'https://tse3.mm.bing.net/th/id/OIP.5foZfMOewymwIwfb_h_JLwHaE4?cb=ucfimgc2&rs=1&pid=ImgDetMain&o=7&rm=3',
     ['Tomate', 'Mozzarella', 'Anchoas', 'Alcaparras']
   ),
   new PizzaModel(
     'Vegetariana', 17.00,
-    'https://images.hola.com/imagenes/cocina/recetas/20191029152968/pizza-vegetariana/0-738-161/pizza-vegetariana-m.jpg',
+    'https://buenavibra.es/wp-content/uploads/2017/07/pizza-1.jpg',
     ['Tomate', 'Mozzarella', 'Pimiento', 'Cebolla', 'Champiñón']
   ),
   new PizzaModel(
     'Hawaiana', 20.50, // Precio con decimales para probar
-    'https://www.biggerbolderbaking.com/wp-content/uploads/2021/02/Homemade-Hawaiian-Pizza-New-Thumb-scaled.jpg',
+    'https://th.bing.com/th/id/R.2c3332312c5d9c5dc915db4b9aee90bb?rik=pjhzfjLjZ9IjSQ&pid=ImgRaw&r=0',
     ['Tomate', 'Mozzarella', 'Jamón', 'Piña']
   ),
   new PizzaModel(
