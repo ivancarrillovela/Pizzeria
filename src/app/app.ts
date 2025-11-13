@@ -12,5 +12,6 @@ import { Footer } from './footer/footer';
 })
 export class App {
   // Aquí podríamos sobrescribir los inputs de header/footer si quisiéramos
-  public miNombre = 'Iván Carrillo Vela'; // Ejemplo
+  public titulo = '4V PIZZA'; // Titulo de la página
+  public miNombre = 'Iván Carrillo Vela'; // Mi nombre, que utilizaré para el footer
 }
