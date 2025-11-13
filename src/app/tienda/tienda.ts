@@ -36,7 +36,7 @@ const PIZZAS_POR_DEFECTO: PizzaModel[] = [
   new PizzaModel(
     'Carbonara', 18.50,
     'https://www.unileverfoodsolutions.es/dam/global-ufs/mcos/SPAIN/calcmenu/recipes/ES-recipes/general/pizza-carbonara/main-header.jpg',
-    ['Nata', 'Mozzarella', 'Bacon', 'Huevo', 'Queso']
+    ['Nata', 'Mozzarella', 'Bacon', 'Huevo', 'Mozzarella']
   )
 ];
 
@@ -55,7 +55,7 @@ export class Tienda implements OnInit {
   // El estado del pedido (el carrito)
   public pedido: PedidoItemModel[] = [];
 
-  // Cargamos los datos iniciales en ngOnInit (como en la teoría y recetas.ts)
+  // Cargamos los datos iniciales en ngOnInit
   ngOnInit() {
     this.pizzasMaestra = PIZZAS_POR_DEFECTO;
   }

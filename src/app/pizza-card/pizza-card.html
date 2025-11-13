@@ -9,9 +9,10 @@
     <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3" [alt]="pizza().nombre"
       style="height: 200px; object-fit: cover;">
 
-    <div class="mb-3">
+    <div class="mb-3 d-flex flex-wrap gap-2">
       @for (ingrediente of pizza().ingredientes; track $index) {
-      <i class="bi bi-egg-fried fs-4 me-2" title="{{ ingrediente }}"></i>
+      <img [src]="getIconoIngrediente(ingrediente)" [alt]="ingrediente" [title]="ingrediente"
+        class="img-fluid" style="height: 40px; width: 40px; object-fit: contain;">
       }
     </div>
 
