@@ -52,6 +52,7 @@
               </div>
             </div>
             <div class="col">
+              @if (metodoPago?.value === 'Tarjeta') {
               <input type="text" id="numeroTarjeta" class="form-control" formControlName="numeroTarjeta"
                 placeholder="Número Tarjeta">
 
@@ -65,6 +66,7 @@
                 }
               </div>
               }
+              }
             </div>
           </div>
 
@@ -77,6 +79,7 @@
               </div>
             </div>
             <div class="col">
+              @if (metodoPago?.value === 'Bizum') {
               <input type="tel" id="numeroTelefono" class="form-control" formControlName="numeroTelefono"
                 placeholder="Número Teléfono">
 
@@ -89,6 +92,7 @@
                 Debe introducir 9 dígitos numéricos.
                 }
               </div>
+              }
               }
             </div>
           </div>
