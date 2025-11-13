@@ -19,8 +19,7 @@
   <hr class="my-4 my-md-5">
 
   <div class="row justify-content-center g-4 g-lg-5">
-    
-    <div class="col-lg-6 col-xl-5">
+    <div class="col-lg-8 col-xl-7">
       <div class="text-center mb-4">
         <h2 class="fw-bold text-dark">
           <i class="bi bi-receipt-cutoff me-2 text-primary"></i>
@@ -29,16 +28,18 @@
       </div>
       <app-resumen-pedido [items]="pedido"></app-resumen-pedido>
     </div>
+  </div>
 
-    <div class="col-lg-6 col-xl-5">
+  <div class="row justify-content-center g-4 g-lg-5 mt-4">
+    <div class="col-lg-8 col-xl-7">
       <div class="text-center mb-4">
         <h2 class="fw-bold text-dark">
           <i class="bi bi-credit-card me-2 text-primary"></i>
           Datos de Pago y Envío
         </h2>
       </div>
-      <app-pago (pedidoPagado)="onPedidoPagado()"></app-pago>
+      <app-pago [items]="pedido" (pedidoPagado)="onPedidoPagado()"></app-pago>
     </div>
-
   </div>
+
 </div>

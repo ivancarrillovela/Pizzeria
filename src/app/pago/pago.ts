@@ -1,6 +1,7 @@
-import { Component, OnInit, output } from '@angular/core';
+import { Component, OnInit, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PedidoItemModel } from '../models/PedidoItemModel';
 
 @Component({
   selector: 'app-pago',
@@ -9,6 +10,9 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
   templateUrl: './pago.html',
 })
 export class Pago implements OnInit {
+
+  // Recibimos los items del pedido
+  items = input<PedidoItemModel[]>([]);
 
   // Evento de salida
   pedidoPagado = output<void>();
@@ -68,6 +72,12 @@ export class Pago implements OnInit {
     if (this.formularioPago.invalid) {
       // Marcamos todos los campos como 'touched' para mostrar errores
       this.formularioPago.markAllAsTouched();
+      return;
+    }
+
+    // Validamos que haya al menos un producto en el pedido
+    if (this.items().length === 0) {
+      alert('Debe seleccionar al menos un producto para realizar el pedido.');
       return;
     }
 

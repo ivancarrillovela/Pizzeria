@@ -1,6 +1,4 @@
 <div class="card h-100 shadow-sm border-0 rounded-3">
-  <img [src]="pizza().fotoUrl" class="card-img-top" [alt]="pizza().nombre" style="height: 220px; object-fit: cover;">
-  
   <div class="card-body d-flex flex-column p-4">
     
     <div class="d-flex justify-content-between align-items-start mb-2">
@@ -8,27 +6,24 @@
       <span class="badge bg-primary fs-6 rounded-pill">{{ pizza().precio | number: '1.2-2' }} €</span>
     </div>
 
-    <h6 class="mt-3 mb-2 fw-semibold">
-      <i class="bi bi-list-ul me-2 text-primary"></i>Ingredientes:
-    </h6>
-
-    <ul class="list-group list-group-flush list-group-horizontal flex-wrap mb-3">
+    <img [src]="pizza().fotoUrl" class="img-fluid rounded-3 my-3" [alt]="pizza().nombre" style="height: 200px; object-fit: cover;">
+    
+    <div class="mb-3">
       @for (ingrediente of pizza().ingredientes; track $index) {
-        <li class="list-group-item small py-1 px-2 border-0 bg-transparent">
-          <i class="bi bi-check-circle me-1 text-success"></i>{{ ingrediente }}
-        </li>
+        <i class="bi bi-egg-fried fs-4 me-2" title="{{ ingrediente }}"></i>
       }
-    </ul>
+    </div>
 
     <form [formGroup]="formularioCantidad" (ngSubmit)="enviarFormulario()" class="mt-auto">
       <div class="input-group">
+        <span class="input-group-text">Cantidad</span>
         <input 
           type="number" 
           class="form-control" 
           formControlName="cantidad"
           aria-label="Cantidad">
         <button type="submit" class="btn btn-primary" [disabled]="formularioCantidad.invalid">
-          <i class="bi bi-cart-plus-fill me-1"></i> Añadir
+          <i class="bi bi-cart-plus-fill"></i>
         </button>
       </div>
     </form>

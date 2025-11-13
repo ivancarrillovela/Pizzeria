@@ -3,90 +3,111 @@
 
     <form [formGroup]="formularioPago" (ngSubmit)="enviarFormulario()" novalidate>
       
-      <div class="mb-3">
-        <label for="horaEntrega" class="form-label fw-semibold">Hora de entrega</label>
-        <input type="time" id="horaEntrega" class="form-control" formControlName="horaEntrega">
+      <!-- Hora de Entrega -->
+      <div class="row mb-4 align-items-start">
+        <label for="horaEntrega" class="col-md-3 col-form-label fw-semibold">Hora Entrega</label>
+        <div class="col-md-9">
+          <input type="time" id="horaEntrega" class="form-control" formControlName="horaEntrega">
+          
+          @if (controlInvalido(horaEntrega)) {
+            <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+              @if (horaEntrega?.errors?.['required']) {
+                La hora de entrega es obligatoria.
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Dirección -->
+      <div class="row mb-4 align-items-start">
+        <label for="direccion" class="col-md-3 col-form-label fw-semibold">Dirección</label>
+        <div class="col-md-9">
+          <textarea id="direccion" class="form-control" rows="3" formControlName="direccion"></textarea>
+          @if (controlInvalido(direccion)) {
+            <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+              @if (direccion?.errors?.['required']) {
+                La dirección es obligatoria.
+              }
+              @if (direccion?.errors?.['minlength']) {
+                La dirección parece demasiado corta.
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Método de Pago -->
+      <div class="row mb-4 align-items-start">
+        <label class="col-md-3 col-form-label fw-semibold">Método de Pago</label>
+        <div class="col-md-9">
+          
+          <!-- Opción Tarjeta -->
+          <div class="row align-items-center mb-3">
+            <div class="col-auto">
+              <div class="form-check">
+                <input type="radio" id="pagoTarjeta" class="form-check-input" value="Tarjeta" formControlName="metodoPago">
+                <label for="pagoTarjeta" class="form-check-label fw-semibold">Tarjeta</label>
+              </div>
+            </div>
+            <div class="col">
+              <input type="text" id="numeroTarjeta" class="form-control" formControlName="numeroTarjeta" placeholder="Número Tarjeta">
+              
+              @if (controlInvalido(numeroTarjeta)) {
+                <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+                  @if (numeroTarjeta?.errors?.['required']) {
+                    El número de tarjeta es obligatorio.
+                  }
+                  @if (numeroTarjeta?.errors?.['pattern']) {
+                    Debe introducir 16 dígitos numéricos.
+                  }
+                </div>
+              }
+            </div>
+          </div>
         
-        @if (controlInvalido(horaEntrega)) {
-          <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-            @if (horaEntrega?.errors?.['required']) {
-              La hora de entrega es obligatoria.
-            }
-          </div>
-        }
-      </div>
-
-      <div class="mb-3">
-        <label for="direccion" class="form-label fw-semibold">Dirección de reparto</label>
-        <textarea id="direccion" class="form-control" rows="3" formControlName="direccion"></textarea>
-        @if (controlInvalido(direccion)) {
-          <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-            @if (direccion?.errors?.['required']) {
-              La dirección es obligatoria.
-            }
-            @if (direccion?.errors?.['minlength']) {
-              La dirección parece demasiado corta.
-            }
-          </div>
-        }
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label fw-semibold">Método de pago</label>
-        <div class="form-check">
-          <input type="radio" id="pagoTarjeta" class="form-check-input" value="Tarjeta" formControlName="metodoPago">
-          <label for="pagoTarjeta" class="form-check-label">Tarjeta</label>
-        </div>
-        <div class="form-check">
-          <input type="radio" id="pagoBizum" class="form-check-input" value="Bizum" formControlName="metodoPago">
-          <label for="pagoBizum" class="form-check-label">Bizum</label>
-        </div>
-      </div>
-
-      @if (metodoPago?.value === 'Tarjeta') {
-        <div class="mb-3">
-          <label for="numeroTarjeta" class="form-label fw-semibold">Número de Tarjeta</label>
-          <input type="text" id="numeroTarjeta" class="form-control" formControlName="numeroTarjeta" placeholder="16 dígitos">
-          @if (controlInvalido(numeroTarjeta)) {
-            <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-              @if (numeroTarjeta?.errors?.['required']) {
-                El número de tarjeta es obligatorio.
-              }
-              @if (numeroTarjeta?.errors?.['pattern']) {
-                Debe introducir 16 dígitos numéricos.
+          <!-- Opción Bizum -->
+          <div class="row align-items-center mb-3">
+            <div class="col-auto">
+              <div class="form-check">
+                <input type="radio" id="pagoBizum" class="form-check-input" value="Bizum" formControlName="metodoPago">
+                <label for="pagoBizum" class="form-check-label fw-semibold">Bizum</label>
+              </div>
+            </div>
+            <div class="col">
+              <input type="tel" id="numeroTelefono" class="form-control" formControlName="numeroTelefono" placeholder="Número Teléfono">
+              
+              @if (controlInvalido(numeroTelefono)) {
+                <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
+                  @if (numeroTelefono?.errors?.['required']) {
+                    El número de teléfono es obligatorio.
+                  }
+                  @if (numeroTelefono?.errors?.['pattern']) {
+                    Debe introducir 9 dígitos numéricos.
+                  }
+                </div>
               }
             </div>
-          }
+          </div>
+          
         </div>
-      }
+      </div>
 
-      @if (metodoPago?.value === 'Bizum') {
-        <div class="mb-3">
-          <label for="numeroTelefono" class="form-label fw-semibold">Número de Teléfono (Bizum)</label>
-          <input type="tel" id="numeroTelefono" class="form-control" formControlName="numeroTelefono" placeholder="9 dígitos">
-          @if (controlInvalido(numeroTelefono)) {
-            <div class="alert alert-danger alert-sm py-2 mt-2 mb-0">
-              @if (numeroTelefono?.errors?.['required']) {
-                El número de teléfono es obligatorio.
-              }
-              @if (numeroTelefono?.errors?.['pattern']) {
-                Debe introducir 9 dígitos numéricos.
-              }
+      <!-- Botones -->
+      <div class="row mt-5 pt-3">
+        <div class="col-md-9 offset-md-3">
+          <div class="row g-2">
+            <div class="col">
+              <button type="submit" class="btn btn-primary w-100" [disabled]="formularioPago.invalid">
+                <i class="bi bi-credit-card-fill me-1"></i> PAGAR
+              </button>
             </div>
-          }
-        </div>
-      }
-
-      <div class="row g-2 mt-4">
-        <div class="col">
-          <button type="button" class="btn btn-outline-secondary w-100" (click)="limpiarFormulario()">
-            <i class="bi bi-trash me-1"></i> LIMPIAR
-          </button>
-        </div>
-        <div class="col">
-          <button type="submit" class="btn btn-primary w-100" [disabled]="formularioPago.invalid">
-            <i class="bi bi-credit-card-fill me-1"></i> PAGAR
-          </button>
+            <div class="col">
+              <button type="button" class="btn btn-outline-secondary w-100" (click)="limpiarFormulario()">
+                <i class="bi bi-trash me-1"></i> LIMPIAR
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
