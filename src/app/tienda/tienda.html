@@ -35,7 +35,7 @@
           Datos de Pago y Envío
         </h2>
       </div>
-      <app-pago (pedidoPagado)="onPedidoPagado()"></app-pago>
+      <app-pago [items]="pedido" (pedidoPagado)="onPedidoPagado()" (pedidoLimpiado)="onPedidoLimpiado()"></app-pago>
     </div>
   </div>
 

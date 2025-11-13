@@ -14,8 +14,11 @@ export class Pago implements OnInit {
   // Recibimos los items del pedido
   items = input<PedidoItemModel[]>([]);
 
-  // Evento de salida
+  // Evento de salida cuando se realiza el pago
   pedidoPagado = output<void>();
+
+  // Evento de salida cuando se limpia el pedido
+  pedidoLimpiado = output<void>();
 
   // Definimos el FormGroup
   formularioPago: FormGroup;
@@ -36,6 +39,9 @@ export class Pago implements OnInit {
     // Escuchamos cambios en el método de pago para poner/quitar validadores
     this.formularioPago.get('metodoPago')!.valueChanges.subscribe(metodo => {
       this.actualizarValidadoresPago(metodo);
+      // Limpiamos los campos de pago cuando se cambia el método
+      this.numeroTarjeta?.reset();
+      this.numeroTelefono?.reset();
     });
 
     // Ejecutamos una vez al inicio
@@ -96,6 +102,8 @@ export class Pago implements OnInit {
     this.formularioPago.reset();
     // Restauramos el valor por defecto del radio button
     this.formularioPago.patchValue({ metodoPago: 'Tarjeta' });
+    // Emitimos el evento de pedido limpiado
+    this.pedidoLimpiado.emit();
   }
 
   // Helper para mostrar errores en la plantilla

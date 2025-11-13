@@ -93,4 +93,10 @@ export class Tienda implements OnInit {
       elementoPizzas.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  // Método que se llama cuando se limpia el pedido desde el formulario de pago
+  onPedidoLimpiado() {
+    // Vaciamos el carrito
+    this.pedido = [];
+  }
 }

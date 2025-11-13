@@ -1,1 +1,34 @@
-@import "bootstrap/dist/css/bootstrap.min.css"; // Importamos Bootstrap
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+// Definición de variables de Bootstrap con paleta de colores verdes
+// Color principal: Verde oscuro profesional
+:root {
+  --bs-primary: #2d5a3d; // Verde oscuro principal
+  --bs-primary-rgb: 45, 90, 61;
+  --bs-primary-hover: #1f3f2a; // Verde más oscuro para hover
+  --bs-secondary: #52b788; // Verde claro secundario
+  --bs-secondary-rgb: 82, 183, 136;
+  --bs-success: #40916c; // Verde éxito
+  --bs-info: #52b788; // Verde cian (cambiado)
+  --bs-warning: #d4a574; // Dorado/marrón claro
+  --bs-danger: #d62828; // Rojo
+  --bs-light: #f1faee; // Blanco verdoso claro
+  --bs-dark: #1b4332; // Verde muy oscuro para texto
+}
+
+// Estilos para todos los botones primarios y sus estados
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+
+  &:hover {
+    background-color: var(--bs-primary-hover);
+    border-color: var(--bs-primary-hover);
+  }
+
+  &.active, &:disabled {
+    background-color: #0f2818;
+    border-color: #0f2818;
+  }
+}
+
